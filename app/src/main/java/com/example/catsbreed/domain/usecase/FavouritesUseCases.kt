@@ -14,8 +14,8 @@ class ObserveFavouritesUseCase(private val repository: BreedRepository) {
 }
 
 /**
- * Pure function, isolated from Flow/coroutines so it's trivial to unit test with plain lists.
- * Uses the lower bound of each breed's life-span range.
+ * I made this Pure function to isolate from Flow/coroutines so it's trivial to unit test with plain lists.
+ * It Uses the lower bound of each breed's life-span range.
  */
 class CalculateAverageLifespanUseCase {
     operator fun invoke(breeds: List<Breed>): Double {

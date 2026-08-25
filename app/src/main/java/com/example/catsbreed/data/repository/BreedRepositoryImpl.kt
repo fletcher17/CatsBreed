@@ -30,7 +30,7 @@ class BreedRepositoryImpl(
         remote.size
     }.recoverCatching {
         throwable ->
-        // Network failed - if we already have cached data the user can keep browsing offline,
+        // Network failed/lost; if we already have cached data the user can keep browsing offline, i.e we fall back to offline caching,
         // so only propagate the error, never erase what's already in Room.
         throw mapError(throwable)
     }
@@ -63,8 +63,8 @@ class BreedRepositoryImpl(
         val existingSortIndex = dao.getById(breedId)?.sortIndex
         dao.insertOrReplace(dto.toEntity(sortIndex = existingSortIndex, isFavourite = isFav))
     }.recoverCatching { throwable ->
-        // If we already have a cached copy (from the list), offline viewing
-        // still works - only surface the error when there's truly nothing to show.
+        // If we already have a cached copy (from the list), offline viewing sstill works
+        // only display the error when there's truly nothing to show.
         if (dao.getById(breedId) != null) Unit else throw mapError(throwable)
     }
 

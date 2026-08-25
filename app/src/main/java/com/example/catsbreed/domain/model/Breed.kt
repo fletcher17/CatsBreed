@@ -10,7 +10,7 @@ data class Breed(
     val origin: String,
     val temperament: String,
     val description: String,
-    val lifeSpan: String,       // raw range as returned by the API, e.g. "9 - 15"
+    val lifeSpan: String,
     val imageUrl: String?,
     val isFavourite: Boolean = false
 ) {
