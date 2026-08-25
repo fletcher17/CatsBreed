@@ -2,7 +2,7 @@
 
 This is an app to view different breeds of cats. It was written in Kotlin/Jetpack Compose. it's
 paginated with
-searchable breed lisst, a favorite screen with an average-lifespan summary (the lower bound) ad a
+searchable breed list, a favorite screen with an average lifespan summary (the lower bound) ad a
 breed detail
 screen, which is also offline capable with a Clean Architecture, uit tested viewmodels and usecases.
 
