@@ -13,6 +13,5 @@ data class BreedEntity(
     val lifeSpan: String,
     val imageUrl: String?,
     val isFavourite: Boolean = false,
-    /** Preserves API fetch order for the list screen; null for entries only ever seen via search/detail. */
     val sortIndex: Int? = null
 )
