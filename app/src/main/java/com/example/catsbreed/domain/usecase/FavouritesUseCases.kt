@@ -2,10 +2,15 @@ package com.example.catsbreed.domain.usecase
 
 import com.example.catsbreed.domain.model.Breed
 import com.example.catsbreed.domain.repository.BreedRepository
+import kotlinx.coroutines.flow.Flow
 import kotlin.math.roundToInt
 
 class ToggleFavouriteUseCase(private val repository: BreedRepository) {
     suspend operator fun invoke(breedId: String) = repository.toggleFavourite(breedId)
+}
+
+class ObserveFavouritesUseCase(private val repository: BreedRepository) {
+    operator fun invoke(): Flow<List<Breed>> = repository.observeFavourites()
 }
 
 /**

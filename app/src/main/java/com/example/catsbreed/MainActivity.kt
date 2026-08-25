@@ -18,8 +18,8 @@ import com.example.catsbreed.ui.theme.CatsBreedTheme
 class MainActivity : ComponentActivity() {
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        super.onCreate(savedInstanceState)
         setContent {
             CatsBreedTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) {
