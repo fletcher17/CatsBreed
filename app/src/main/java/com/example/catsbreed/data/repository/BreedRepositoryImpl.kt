@@ -6,6 +6,7 @@ import com.example.catsbreed.data.mapper.toEntity
 import com.example.catsbreed.data.remote.CatApiService
 import com.example.catsbreed.domain.model.Breed
 import com.example.catsbreed.domain.repository.BreedRepository
+import com.example.catsbreed.util.NoConnectivityException
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
@@ -76,9 +77,4 @@ class BreedRepositoryImpl(
         is IOException -> NoConnectivityException(cause = throwable)
         else -> throwable
     }
-
-    class NoConnectivityException(
-        message: String = "No internet connection available.",
-        cause: Throwable? = null
-    ) : IOException(message, cause)
 }
