@@ -20,7 +20,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.catsbreed.presentation.breedlist.BreedListScreen
+import com.example.catsbreed.presentation.detail.BreedDetailScreen
 
 private data class BottomTab(val route: String, val label: String, val icon: ImageVector)
 
@@ -65,6 +67,12 @@ fun CatsBreedNavGraph() {
         ) {
             composable(ScreenRoutes.BREED_LIST) {
                 BreedListScreen(onBreedClick = { id -> navController.navigate(ScreenRoutes.breedDetail(id)) })
+            }
+            composable(route = ScreenRoutes.BREED_DETAIL,
+                arguments = listOf(navArgument("breedId") { })) { backStackEntry ->
+                val breedId = backStackEntry.arguments?.getString("breedId").orEmpty()
+                BreedDetailScreen(breedId = breedId, onBackClick = { navController.popBackStack() } )
+
             }
 
         }

@@ -9,6 +9,7 @@ import com.example.catsbreed.domain.usecase.ObserveBreedsUseCase
 import com.example.catsbreed.domain.usecase.SearchBreedsUseCase
 import com.example.catsbreed.domain.usecase.ToggleFavouriteUseCase
 import com.example.catsbreed.util.NoConnectivityException
+import com.example.catsbreed.util.toUserMessage
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -138,9 +139,4 @@ class BreedListViewModel(
     fun onToggleFavourite(breedId: String) {
         viewModelScope.launch { toggleFavourite(breedId) }
     }
-}
-
-fun Throwable.toUserMessage(): String = when (this) {
-    is NoConnectivityException -> "No internet connection."
-    else -> message ?: "Something went wrong. Please try again."
 }
