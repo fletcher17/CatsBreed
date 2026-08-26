@@ -27,7 +27,7 @@ favourites-summary math can be unit tested without touching Flow or coroutines a
 
 **Why single-module, not multi-module:** I know multi-module is a bonus point based, not
 a requirement. So for an app this size, splitting into `:core-domain` / `:core-data` /
-`:feature-*` Gradle modules mostly adds build-graph and Gradle-config overhead without a
+`:feature-*` Gradle modules mostly adds build graph and Gradle config overhead without a
 real payoff, there's no team-scaling or independent build time problem to solve yet. The
 *package* boundaries already enforce the same separation of concerns and are trivial to
 promote into real Gradle modules later if the app grows (however, domain has no Android dependency
